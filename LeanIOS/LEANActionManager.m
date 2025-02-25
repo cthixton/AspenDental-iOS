@@ -109,14 +109,13 @@
         icon = defaultIcon;
     }
     
-    UIColor *titleColor = [UIColor colorNamed:@"titleColor"];
-    UIImage *iconImage = [LEANIcons imageForIconIdentifier:icon size:ICON_SIZE color:titleColor];
-    UIImage *nonTintedImage = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *iconImage = [LEANIcons imageForIconIdentifier:icon size:ICON_SIZE color:[UIColor blackColor]];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setImage:nonTintedImage forState:UIControlStateNormal];
+    [button setImage:iconImage forState:UIControlStateNormal];
     [button addTarget:self.wvc action:action forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 36, 30)];
+    button.tintColor = [UIColor colorNamed:@"titleColor"];
     
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [buttonItem setAccessibilityLabel:label];
@@ -125,14 +124,13 @@
 }
 
 - (void)createButtonWithIcon:(NSString *)icon label:(NSString *)label url:(NSString *)url {
-    UIColor *titleColor = [UIColor colorNamed:@"titleColor"];
-    UIImage *iconImage = [LEANIcons imageForIconIdentifier:icon size:ICON_SIZE color:titleColor];
-    UIImage *nonTintedImage = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *iconImage = [LEANIcons imageForIconIdentifier:icon size:ICON_SIZE color:[UIColor blackColor]];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setImage:nonTintedImage forState:UIControlStateNormal];
+    [button setImage:iconImage forState:UIControlStateNormal];
     [button addTarget:self action:@selector(itemWasSelected:) forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 36, 30)];
+    button.tintColor = [UIColor colorNamed:@"titleColor"];
     
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [buttonItem setAccessibilityLabel:label];

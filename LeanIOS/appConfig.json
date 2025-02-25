@@ -25,10 +25,10 @@
     "androidUserAgentAdd": "median",
     "androidForceUserAgent": "",
     "androidSigningKey": "release",
-    "iosCustomHeaders": {},
-    "androidCustomHeaders": {},
     "injectMedianJS": true,
     "forceSessionCookieExpiry": 0,
+    "iosCustomHeaders": {},
+    "androidCustomHeaders": {},
     "version": 1
   },
   "navigation": {
@@ -329,7 +329,10 @@
         "centerImage": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
         "centerImageDark": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
         "animation": null,
-        "animationDark": null
+        "animationDark": null,
+        "animationLoop": "once",
+        "animationFrame": null,
+        "animationFrameDark": null
       },
       "android": {
         "launchImages": {
@@ -351,7 +354,10 @@
         "backgroundColorDark": "#000000",
         "animated": false,
         "animation": null,
-        "animationDark": null
+        "animationDark": null,
+        "animationLoop": "once",
+        "animationFrame": null,
+        "animationFrameDark": null
       }
     },
     "transitionInteractiveDelayMax": 0.2,

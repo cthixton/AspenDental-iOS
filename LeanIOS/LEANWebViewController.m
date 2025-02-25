@@ -210,7 +210,9 @@ static NSInteger _currentWindows = 0;
         self.initialWebview = nil;
         
         // nav title image
-        [self checkNavigationTitleImageForUrl:self.wkWebview.URL];
+        if (self.wkWebview.URL) {
+            [self checkNavigationTitleImageForUrl:self.wkWebview.URL];
+        }
         
     } else {
         if (appConfig.userAgentReady) {
@@ -511,6 +513,7 @@ static NSInteger _currentWindows = 0;
     
     NSURL *url = self.wkWebview.URL;
     if (url) {
+        [self checkNavigationTitleImageForUrl:url];
         [self checkNavigationForUrl:url];
     }
     
@@ -617,7 +620,7 @@ static NSInteger _currentWindows = 0;
                 NSPredicate *predicate = entry[@"predicate"];
                 if ([predicate evaluateWithObject:url.absoluteString]) {
                     showImageView = [entry[@"showImage"] boolValue];
-                    title = entry[@"title"] ?: appConfig.appName;
+                    title = entry[@"title"] ?: self.wkWebview.title;
                     hasRegexMatch = YES;
                     break;
                 }
@@ -1475,7 +1478,7 @@ static NSInteger _currentWindows = 0;
     }
     // Only start blob downloads on the main frame
     if ([url.scheme isEqualToString:@"blob"] && isMainFrame) {
-        [self.fileWriterSharer downloadBlobUrl:url filename:nil];
+        [self.fileWriterSharer downloadBlobUrl:url filename:nil callback:nil];
         return NO;
     }
     
@@ -1602,6 +1605,12 @@ static NSInteger _currentWindows = 0;
         return NO;
     }
     
+    // data links
+    if ([url.scheme isEqualToString:@"data"]) {
+        [self.documentSharer shareDataUrl:url];
+        return NO;
+    }
+    
     // always allow iframes to load
     if (!isMainFrame && ![urlString isEqualToString:[[request mainDocumentURL] absoluteString]]) {
         return YES;
@@ -1613,7 +1622,7 @@ static NSInteger _currentWindows = 0;
     if (appConfig.redirects != nil) {
         NSString *to = [appConfig.redirects valueForKey:urlString];
         if (!to) to = [appConfig.redirects valueForKey:@"*"];
-        if (to && ![to isEqualToString:urlString]) {
+        if (to && ![GNUtilities url:to matchesUrl:urlString]) {
             url = [NSURL URLWithString:to];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self loadUrl:url];
@@ -1859,6 +1868,7 @@ static NSInteger _currentWindows = 0;
         
         // add KVO for single-page app url changes
         [newView addObserver:self forKeyPath:@"URL" options:0 context:nil];
+        [newView addObserver:self forKeyPath:@"title" options:0 context:nil];
         [newView addObserver:self forKeyPath:@"canGoBack" options:0 context:nil];
         [newView addObserver:self forKeyPath:@"canGoForward" options:0 context:nil];
         
@@ -1928,6 +1938,12 @@ static NSInteger _currentWindows = 0;
                 [self checkNavigationForUrl:url];
                 [self.actionManager didLoadUrl:url];
                 [self.registrationManager checkUrl:url];
+            }
+        }
+        if ([keyPath isEqualToString:@"title"]) {
+            // Update page title
+            if (self.wkWebview.title) {
+                [self checkNavigationTitleImageForUrl:url];
             }
         }
         if ([keyPath isEqualToString:@"canGoBack"]) {

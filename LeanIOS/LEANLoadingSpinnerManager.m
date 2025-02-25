@@ -32,7 +32,7 @@
     
     if (!self.activityIndicator) {
         self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-        self.activityIndicator.color = [UIColor grayColor];
+        self.activityIndicator.color = [UIColor colorNamed:@"activityIndicatorColor"];
         self.activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
         [wvc.view addSubview:self.activityIndicator];
         

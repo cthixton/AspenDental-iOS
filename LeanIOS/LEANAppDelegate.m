@@ -24,9 +24,6 @@
 {
     // clear keychain item if this is first launch
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"hasLaunched"]) {
-        GoNativeKeychain *keyChain = [[GoNativeKeychain alloc] init];
-        [keyChain deleteSecret];
-        
         [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"hasLaunched"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         

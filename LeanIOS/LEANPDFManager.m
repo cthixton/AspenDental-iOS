@@ -66,7 +66,8 @@
     NSDictionary *textAttributes = @{ NSForegroundColorAttributeName: [UIColor colorNamed:@"titleColor"] };
     [self.navigationController.navigationBar setTitleTextAttributes:textAttributes];
     
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+    NSString *doneTitle = NSLocalizedString(@"button-done", nil);
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:doneTitle style:UIBarButtonItemStylePlain target:self action:@selector(done)];
     NSDictionary *attributes = @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0] };
     [doneButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
     doneButton.tintColor = [UIColor colorNamed:@"tintColor"];
@@ -321,8 +322,12 @@
     }
 }
 
+- (BOOL)shouldHandleType:(NSString *)type {
+    return [type isEqualToString:@"application/pdf"] || [type isEqualToString:@"application/binary"];
+}
+
 - (BOOL)shouldHandleResponse:(NSURLResponse * _Nullable)response {
-    return [response.MIMEType isEqualToString:@"application/pdf"] || [response.MIMEType isEqualToString:@"application/binary"];
+    return [self shouldHandleType:response.MIMEType];
 }
 
 - (void)openPDF:(NSURL * _Nullable)url wvc:(UIViewController * _Nonnull)wvc {

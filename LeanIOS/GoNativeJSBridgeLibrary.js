@@ -110,10 +110,10 @@ median.share = {
         addCommand("median://share/sharePage", params);
     },
     downloadFile: function (params) {
-        addCommand("median://share/downloadFile", params);
+        return addCommandCallback("median://share/downloadFile", params);
     },
     downloadImage: function (params){
-        addCommand("median://share/downloadImage", params);
+        return addCommandCallback("median://share/downloadImage", params);
     }
 };
 
