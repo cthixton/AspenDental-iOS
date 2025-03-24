@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[http]
+	postBuffer = 524288000
+[remote "AspenDental-iOS"]
+	url = https://cthixton@github.com/cthixton/AspenDental-iOS.git
+	fetch = +refs/heads/*:refs/remotes/AspenDental-iOS/*
+	gtServiceAccountIdentifier = 0d5b31b90d7c23ee0ac1ff727f0e251d401903412b98647058b1eaceabaf2d04

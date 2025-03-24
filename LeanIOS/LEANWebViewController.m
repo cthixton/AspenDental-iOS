@@ -535,6 +535,7 @@ static NSInteger _currentWindows = 0;
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
 {
     [self.tabManager traitCollectionDidChange:previousTraitCollection];
+    [self.actionManager traitCollectionDidChange:previousTraitCollection];
 }
 
 - (void) buildDefaultToobar
@@ -823,45 +824,18 @@ static NSInteger _currentWindows = 0;
     [self.documentSharer shareRequest:self.currentRequest fromButton:sender];
 }
 
-- (void) updateNavigationBarItemsAnimated:(BOOL)animated
-{
-    NSMutableArray *buttons = [NSMutableArray array];
-    NSMutableArray *leftButtons = [NSMutableArray array];
-    NSMutableArray *rightButtons = [NSMutableArray array];
-    
+- (void) updateNavigationBarItemsAnimated:(BOOL)animated {
     BOOL backButtonShown = self.urlLevel > 1 || self.isWindowOpen;
+    BOOL allowLeftAction = !backButtonShown && self.navButton == nil;
+    LEANActionButtons *actions = [self.actionManager configureNavBarButtonsAllowingLeftAction:allowLeftAction];
     
-    if (self.actionManager.items)
-        [buttons addObjectsFromArray:self.actionManager.items];
-    
-    if (self.sidebarItemsEnabled && self.navButton)
-        [buttons addObject:self.navButton];
-    
-    // put sidebar button to the left
-    if (buttons.count == 1 && self.sidebarItemsEnabled && self.navButton) {
-        [leftButtons addObject:self.navButton];
-    }
-    else if (buttons.count <= 3 && backButtonShown) {
-        [rightButtons addObjectsFromArray:buttons];
-    }
-    // split buttons between the left and right navigation items
-    else {
-        float halfIndex = (float)[buttons count] / 2;
-        for (NSInteger i = 0; i < [buttons count]; i++) {
-            if (i < halfIndex) {
-                [rightButtons addObject:buttons[i]];
-            } else {
-                [leftButtons insertObject:buttons[i] atIndex:0];
-            }
-        }
+    if (self.navButton) {
+        [self.navigationItem setLeftBarButtonItems:@[self.navButton] animated:animated];
+    } else {
+        [self.navigationItem setLeftBarButtonItems:actions.leftItems animated:animated];
     }
     
-    // do not override the back button
-    if (!backButtonShown) {
-        [self.navigationItem setLeftBarButtonItems:leftButtons animated:animated];
-    }
-    
-    [self.navigationItem setRightBarButtonItems:rightButtons animated:animated];
+    [self.navigationItem setRightBarButtonItems:actions.rightItems animated:animated];
     [self.navigationItem setHidesBackButton:NO animated:animated];
 }
 
@@ -1261,17 +1235,18 @@ static NSInteger _currentWindows = 0;
         return;
     }
     
+    BOOL openShareDialog = [navigationAction.request.URL.scheme isEqualToString:@"data"];
     if (@available(iOS 15.0, *)) {
         if (navigationAction.shouldPerformDownload) {
-            BOOL shouldDownloadUrl = [((LEANAppDelegate *)UIApplication.sharedApplication.delegate).bridge webView:webView shouldDownloadUrl:navigationAction.request.URL];
-            
-            if (shouldDownloadUrl) {
-                [self.documentSharer shareUrl:navigationAction.request.URL fromView:self.wkWebview];
-                [self showWebviewWithDelay:0.3]; // Stop loading animation
-                decisionHandler(WKNavigationActionPolicyCancel, preferences);
-                return;
-            }
+            openShareDialog = [((LEANAppDelegate *)UIApplication.sharedApplication.delegate).bridge webView:webView shouldDownloadUrl:navigationAction.request.URL];
         }
+    }
+    
+    if (openShareDialog) {
+        [self.documentSharer shareUrl:navigationAction.request.URL fromView:self.wkWebview];
+        [self showWebviewWithDelay:0.3]; // Stop loading animation
+        decisionHandler(WKNavigationActionPolicyCancel, preferences);
+        return;
     }
     
     decisionHandler(WKNavigationActionPolicyAllow, preferences);
@@ -1602,12 +1577,6 @@ static NSInteger _currentWindows = 0;
     // sms links
     if ([url.scheme isEqualToString:@"sms"]) {
         [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-        return NO;
-    }
-    
-    // data links
-    if ([url.scheme isEqualToString:@"data"]) {
-        [self.documentSharer shareDataUrl:url];
         return NO;
     }
     
@@ -2144,6 +2113,8 @@ static NSInteger _currentWindows = 0;
         UIContentSizeCategory contentSizeCategory = [UIApplication sharedApplication].preferredContentSizeCategory;
         [self applyCssForContentSizeCategory:contentSizeCategory];
         
+        [LEANUtilities configureViewportOfWebView:self.wkWebview];
+        
         [self runJavascriptWithCallback:@[@"median_library_ready", @"gonative_library_ready"] data:nil];
     });
 }
@@ -2458,14 +2429,9 @@ static NSInteger _currentWindows = 0;
 }
 
 - (void) showSidebarNavButton {
-    UIButton *favButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [favButton setImage:[UIImage imageNamed:@"navImage"] forState:UIControlStateNormal];
-    [favButton addTarget:self action:@selector(showMenu)
-        forControlEvents:UIControlEventTouchUpInside];
-    [favButton setFrame:CGRectMake(0, 0, 36, 30)];
-    favButton.tintColor = [UIColor colorNamed:@"titleColor"];
-    self.navButton = [[UIBarButtonItem alloc] initWithCustomView:favButton];
-    self.navButton.accessibilityLabel = NSLocalizedString(@"button-menu", @"Button: Menu");
+    NSString *icon = [GoNativeAppConfig sharedAppConfig].sidebarMenuIcon ?: @"fas fa-bars";
+    NSString *label = NSLocalizedString(@"button-menu", @"Button: Menu");
+    self.navButton = [self.actionManager createNavBarButtonWithLabel:label icon:icon target:self action:@selector(showMenu)];
 }
 
 - (void) setNavigationButtonStatus

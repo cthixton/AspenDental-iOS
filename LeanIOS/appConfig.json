@@ -13,12 +13,12 @@
     "userAgentAdd": "median",
     "enableWindowOpen": true,
     "forceUserAgent": "",
-    "publicKey": "pqnzam",
-    "deviceRegKey": "9889ejrvg7wn4tmkzn39ucjecw",
-    "appName": "Aspen Dental",
-    "initialUrl": "https://web.archive.org/web/20241001100616/http://aspendental.com/",
-    "androidPackageName": "co.median.android.pqnzam",
-    "iosBundleId": "co.median.ios.pqnzam",
+    "publicKey": "qzxzpn",
+    "deviceRegKey": "3rkf3ucvc5cdbfzg0786pezgxc",
+    "appName": "Aspen Dental POC",
+    "initialUrl": "https://aspendental.com",
+    "iosBundleId": "co.median.ios.qzxzpn",
+    "androidPackageName": "co.median.android.qzxzpn",
     "keepScreenOn": null,
     "iosUserAgentAdd": "median",
     "iosForceUserAgent": "",
@@ -29,7 +29,7 @@
     "forceSessionCookieExpiry": 0,
     "iosCustomHeaders": {},
     "androidCustomHeaders": {},
-    "version": 1
+    "version": 3
   },
   "navigation": {
     "tabNavigation": {
@@ -50,123 +50,7 @@
       "menus": [
         {
           "active": false,
-          "items": [
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/",
-              "label": "",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/search/",
-              "label": "",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/schedule-an-appointment/",
-              "label": "Schedule",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/tel:+18002773633",
-              "label": "(800) 277-3633",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/dental-implants/",
-              "label": "Learn more >",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/dentures/",
-              "label": "Learn more >",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/mottoaligners/",
-              "label": "Learn more >",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/dental-services/emergency-dental-care/",
-              "label": "Learn more >",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/search?query=dentist+near+me&referrerPageUrl=https%3A%2F%2Fwww.aspendental.com%2F&tabOrder=.%2Findex.html%2Clocations%2Cfaqs%2Clinks%2Chealth_articles%2Cblog_posts%2Cproviders%2Cservices&verticalUrl=index.html",
-              "label": "Nearest dental office is to you",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/schedule-an-appointment/",
-              "label": "Schedule your dental appointment online",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/dental-services/cosmetic-dentistry/teeth-whitening/",
-              "label": "Teeth whitening",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/http://aspendental.com/dental-services/dental-checkup/",
-              "label": "Checkup",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/dentures/",
-              "label": "Dentures",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/dental-implants/",
-              "label": "Dental implants",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/dental-services/checkups/",
-              "label": "Dental checkups",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/dental-services/emergency-dental-care/",
-              "label": "Emergency dental care",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/dental-financing-and-insurance/",
-              "label": "Dental financing plans",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/dental-savings-plan/",
-              "label": "Aspen dental savings plan",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.facebook.com/AspenDental/",
-              "label": "",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.youtube.com/user/smilestories/",
-              "label": "",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://twitter.com/aspendental/",
-              "label": "",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/tel:(800)%20277-3633",
-              "label": "(800) 277-3633",
-              "subLinks": []
-            },
-            {
-              "url": "https://web.archive.org/web/20241001100616/https://www.aspendental.com/about/",
-              "label": "Here",
-              "subLinks": []
-            }
-          ],
+          "items": [],
           "name": "default"
         }
       ]
@@ -225,7 +109,7 @@
           "mode": "internal",
           "label": "All pages on my domain",
           "pagesToTrigger": "domain",
-          "regex": "https?:\\/\\/([-\\w]+\\.)*archive.org(\\/.*)?$"
+          "regex": "https?:\\/\\/([-\\w]+\\.)*aspendental.com(\\/.*)?$"
         },
         {
           "mode": "appbrowser",
@@ -321,41 +205,41 @@
   "styling": {
     "splashScreen": {
       "ios": {
+        "animationLoop": "once",
         "backgroundColor": "#FFFFFF",
-        "backgroundColorDark": "#000000",
-        "backgroundImage": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394360834_6byvdqgn5n3ym_FFFFFF_1_2x2.png",
-        "backgroundImageDark": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394360850_8tbp5du7kz9cw_000000_1_2x2.png",
+        "backgroundColorDark": "#0E0D08",
+        "backgroundImage": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955579_njfu1tnczfbf6_FFFFFF_1_2x2.png",
+        "backgroundImageDark": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955591_r6pn5teunun22_0E0D08_1_2x2.png",
         "animated": false,
-        "centerImage": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
-        "centerImageDark": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
+        "centerImage": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png",
+        "centerImageDark": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png",
         "animation": null,
         "animationDark": null,
-        "animationLoop": "once",
         "animationFrame": null,
         "animationFrameDark": null
       },
       "android": {
+        "showSplash": true,
+        "animationLoop": "once",
+        "backgroundColor": "#FFFFFF",
+        "backgroundColorDark": "#1A100B",
+        "animated": false,
         "launchImages": {
-          "mdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361034_kvj3u7ff6c07y_180x180.png",
-          "hdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361049_4tuve8f3d8mrj_270x270.png",
-          "xhdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361069_dwtkvgbpm6pfr_360x360.png",
-          "xxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361082_rmdj6eqxh9212_540x540.png",
-          "xxxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361091_1bu3d0bbqa2fw_720x720.png"
+          "mdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955744_zx8y2ejev44nr_180x180.png",
+          "hdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955757_kqv7j00dd13a0_270x270.png",
+          "xhdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955765_6w1jkhun0gbxj_360x360.png",
+          "xxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955782_hy4dpjk69rgvj_540x540.png",
+          "xxxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955803_5ug31d5x7hq82_720x720.png"
         },
         "launchImagesDark": {
-          "mdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361116_039r94106gy6c_180x180.png",
-          "hdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361134_cnqqgyu62bh44_270x270.png",
-          "xhdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361190_y1hw00r2xy2qw_360x360.png",
-          "xxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361228_813ut3fveyh7p_540x540.png",
-          "xxxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/1728394361262_6m6f29vgwfj3c_720x720.png"
+          "mdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955828_vg6ymx0rt2hjg_180x180.png",
+          "hdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955866_fm8w4m7pd1hbw_270x270.png",
+          "xhdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955894_8kv3z96b6rny0_360x360.png",
+          "xxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955918_ff70aww09jzam_540x540.png",
+          "xxxhdpi": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/1742391955945_zgkh1u3mkm6te_720x720.png"
         },
-        "showSplash": true,
-        "backgroundColor": "#FFFFFF",
-        "backgroundColorDark": "#000000",
-        "animated": false,
         "animation": null,
         "animationDark": null,
-        "animationLoop": "once",
         "animationFrame": null,
         "animationFrameDark": null
       }
@@ -380,8 +264,10 @@
     "iosNavigationBarTintColorDark": "#202020",
     "iosTabBarTintColor": "#f8f8f8",
     "iosTabBarTintColorDark": "#000000",
-    "icon": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
-    "iosHeaderImage": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
+    "iosTabBarInactiveColor": "#A1A1A1",
+    "iosTabBarInactiveColorDark": "#818181",
+    "icon": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png",
+    "iosHeaderImage": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png",
     "showActionBar": false,
     "showNavigationBar": false,
     "iosSidebarFont": "Default",
@@ -428,13 +314,13 @@
     "androidSystemNavBarColor": "#FFFFFF",
     "androidSystemNavBarColorDark": "#000000",
     "androidWebviewTextZoom": null,
-    "androidIcon": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
-    "iosIcon": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png",
+    "iosIcon": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png",
     "customIcons": {},
     "iosStatusBarStyle": "auto",
     "iosEnableOverlayInStatusBar": false,
     "androidStatusBarStyle": "auto",
     "androidEnableOverlayInStatusBar": false,
+    "androidIcon": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png",
     "iosActivityIndicatorColor": "#808080",
     "iosActivityIndicatorColorDark": "#808080",
     "androidActivityIndicatorColor": "#808080",
@@ -446,7 +332,7 @@
     "navigationTitleImageLocationDark": "assets/defaults/app-icon-placeholder.png",
     "androidHeaderImage": "assets/defaults/app-icon-placeholder.png",
     "androidHeaderImageDark": "assets/defaults/app-icon-placeholder.png",
-    "iosHeaderImageDark": "https://s3.amazonaws.com/gonativeio/app_files/pqnzam/app_icon_wkh4vqg0tpntj_1728394360.png"
+    "iosHeaderImageDark": "https://s3.amazonaws.com/gonativeio/app_files/qzxzpn/app_icon_ios_1742391950968.png"
   },
   "permissions": {
     "usesGeolocation": false,
